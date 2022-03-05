@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Time extends Component {
+export class Time extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -8,11 +8,13 @@ export default class Time extends Component {
     };
     this.Click = this.Click.bind(this);
   }
-
   Click() {
-    this.setState((state, prevState) => ({
-      counter: state.counter + 1,
-    }));
+    setTimeout(
+      this.setState((state) => ({
+        counter: state.counter + 1,
+      })),
+      5000
+    );
   }
   render() {
     return (
@@ -24,3 +26,13 @@ export default class Time extends Component {
     );
   }
 }
+
+export const Slow = () => {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      console.log('This will run after 1 second!');
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
+  return <div>Slow</div>;
+};
