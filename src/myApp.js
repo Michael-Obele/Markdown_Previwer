@@ -8,6 +8,11 @@ export default class Time extends Component {
     };
   }
   render() {
-    return <div></div>;
+    return (
+      <div>
+        <h1>Header</h1>
+        <h1>Counter:{this.state.counter}</h1>
+      </div>
+    );
   }
 }
