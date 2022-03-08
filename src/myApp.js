@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import {} from './app/actionss'
 
 export class Time extends Component {
   constructor(props) {
@@ -9,12 +11,9 @@ export class Time extends Component {
     this.Click = this.Click.bind(this);
   }
   Click() {
-    setTimeout(
-      this.setState((state) => ({
-        counter: state.counter + 1,
-      })),
-      5000
-    );
+    this.setState((state) => ({
+      counter: state.counter + 1,
+    }))
   }
   render() {
     return (
@@ -26,13 +25,3 @@ export class Time extends Component {
     );
   }
 }
-
-export const Slow = () => {
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      console.log('This will run after 1 second!');
-    }, 1000);
-    return () => clearTimeout(timer);
-  }, []);
-  return <div>Slow</div>;
-};
