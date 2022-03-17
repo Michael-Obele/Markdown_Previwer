@@ -1,27 +1,61 @@
 import React, { Component } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {} from './app/actionss'
+import * as actions from './app/store';
 
-export class Time extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      counter: 0,
-    };
-    this.Click = this.Click.bind(this);
-  }
-  Click() {
-    this.setState((state) => ({
-      counter: state.counter + 1,
-    }))
-  }
-  render() {
+export const App = (props) => {
+  const count = useSelector((state) => state.counter);
+  const logger = useSelector((state) => state.loggedState);
+  const DarkMode = useSelector((state) => state.DarkMode);
+  const dispatch = useDispatch();
+  const ButtonAction = {
+    Add: () => {
+      dispatch(actions.switcher().increment());
+    },
+    Minus: () => {
+      dispatch(actions.switcher().decrement());
+    },
+    Login: () => {
+      dispatch(actions.switcher().Login());
+    },
+    Logout: () => {
+      dispatch(actions.switcher().LogOut());
+    },
+    DarkMode: () => {
+      dispatch(actions.switcher().Dark());
+    },
+    LightMode: () => {
+      dispatch(actions.switcher().Light());
+    },
+  };
+  const Mess = () => {
     return (
       <div>
-        <h1>Header</h1>
-        <h2>Counter:{this.state.counter}</h2>
-        <button onClick={this.Click}>Click to Add</button>
+        <h2>Counter:{count}</h2>
+        <button onClick={ButtonAction.Add}>Click to Add</button>
+        <button onClick={ButtonAction.Minus}>Click to Remove</button>
       </div>
     );
-  }
-}
+  };
+  return (
+    <div>
+      <h1>Header</h1>
+      {DarkMode ? (
+        <div>
+          <button onClick={ButtonAction.LightMode}>Light Mode</button>
+          <h4>DarkMode On</h4>
+        </div>
+      ) : (
+        <div>
+          <button onClick={ButtonAction.DarkMode}>Dark Mode</button>
+          <h4>DarkMode Off</h4>
+        </div>
+      )}
+      {logger ? (
+        <button onClick={ButtonAction.Logout}>Login Out</button>
+      ) : (
+        <button onClick={ButtonAction.Login}>Login In</button>
+      )}
+      {logger ? Mess() : <h3>Please Login</h3>}
+    </div>
+  );
+};
