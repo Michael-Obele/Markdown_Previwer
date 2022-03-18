@@ -14,13 +14,9 @@ code {
 
 .box {
   background-color: aqua;
-  height: 500px;
-  width: 500px;
 }
 
 .Darkbox {
   background-color: #353a3a;
   color: aliceblue;
-  height: 500px;
-  width: 500px;
 }

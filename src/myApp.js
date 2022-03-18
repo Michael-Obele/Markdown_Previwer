@@ -27,6 +27,10 @@ export const App = (props) => {
       dispatch(actions.switcher().Light());
     },
   };
+  const bColor = () => {
+    return DarkMode ? 'grey' : `green`;
+  };
+  document.body.style.backgroundColor = bColor();
   const Text = () => {
     return (
       <div>
@@ -37,7 +41,7 @@ export const App = (props) => {
     );
   };
   const color = (x) => {
-    return DarkMode ? x : `Dark${x}`;
+    return DarkMode ? `Dark${x}` : x;
   };
   return (
     <div className={color('box')}>
