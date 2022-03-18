@@ -27,7 +27,7 @@ export const App = (props) => {
       dispatch(actions.switcher().Light());
     },
   };
-  const Mess = () => {
+  const Text = () => {
     return (
       <div>
         <h2>Counter:{count}</h2>
@@ -36,8 +36,11 @@ export const App = (props) => {
       </div>
     );
   };
+  const color = (x) => {
+    return DarkMode ? x : `Dark${x}`;
+  };
   return (
-    <div>
+    <div className={color('box')}>
       <h1>Header</h1>
       {DarkMode ? (
         <div>
@@ -55,7 +58,7 @@ export const App = (props) => {
       ) : (
         <button onClick={ButtonAction.Login}>Login In</button>
       )}
-      {logger ? Mess() : <h3>Please Login</h3>}
+      {logger ? Text() : <h3>Please Login</h3>}
     </div>
   );
 };
