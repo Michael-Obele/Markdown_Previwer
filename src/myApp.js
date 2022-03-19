@@ -30,7 +30,7 @@ export const App = (props) => {
     },
   };
   const bColor = () => {
-    return DarkMode ? 'grey' : `green`;
+    return DarkMode ? 'grey' : `white`;
   };
   document.body.style.backgroundColor = bColor();
   const Text = () => {
