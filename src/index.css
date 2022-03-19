@@ -13,10 +13,12 @@ code {
 }
 
 .box {
-  background-color: aqua;
+  /* background-color: #d7dfdf; */
+  align-items: center;
+  text-align: center;
 }
 
-.Darkbox {
-  background-color: #353a3a;
+.dark {
+  /* background-color: #353a3a; */
   color: aliceblue;
 }

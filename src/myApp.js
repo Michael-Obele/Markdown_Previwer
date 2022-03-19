@@ -46,7 +46,7 @@ export const App = (props) => {
   const Sun = <FontAwesomeIcon icon={faSun} />;
 
   const color = (x) => {
-    return DarkMode ? `Dark${x}` : x;
+    return DarkMode ? `${x} dark` : x;
   };
   return (
     <div className={color('box')}>
