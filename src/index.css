@@ -11,6 +11,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@1,523&family=Dancing+Script:wght@700&family=Exo+2:ital,wght@1,300&family=IM+Fell+English+SC&family=Lobster&family=Pacifico&family=Playball&family=Press+Start+2P&display=swap');
 
 .box {
   /* background-color: #d7dfdf; */
@@ -21,4 +22,24 @@ code {
 .dark {
   /* background-color: #353a3a; */
   color: whitesmoke;
+}
+
+.logoName {
+  font-size: 23px;
+  font-family: 'IM Fell English SC', serif;
+  /* font-family: 'Cabin', sans-serif;
+  font-family: 'Dancing Script', cursive;
+  font-family: 'Exo 2', sans-serif;
+  font-family: 'Lobster', cursive;
+  font-family: 'Pacifico', cursive;
+  font-family: 'Playball', cursive;
+  font-family: 'Press Start 2P', cursive; */
+}
+
+#input {
+  margin: 20px;
+}
+
+#output {
+  margin-left: 25px;
 }

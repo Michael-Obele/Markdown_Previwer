@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as actions from './app/store';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+import Header from './Header';
+import Dark from './Darker';
+import { Input, Output } from './content';
 
 export const App = (props) => {
   const count = useSelector((state) => state.counter);
@@ -22,12 +23,6 @@ export const App = (props) => {
     Logout: () => {
       dispatch(actions.switcher().LogOut());
     },
-    DarkMode: () => {
-      dispatch(actions.switcher().Dark());
-    },
-    LightMode: () => {
-      dispatch(actions.switcher().Light());
-    },
   };
   const bColor = () => {
     return DarkMode ? 'grey' : `white`;
@@ -42,32 +37,17 @@ export const App = (props) => {
       </div>
     );
   };
-  const Moon = <FontAwesomeIcon icon={faMoon} />;
-  const Sun = <FontAwesomeIcon icon={faSun} />;
 
   const color = (x) => {
     return DarkMode ? `${x} dark` : x;
   };
   return (
-    <div className={color('box')}>
-      <h1>Header</h1>
-      {DarkMode ? (
-        <div>
-          <button onClick={ButtonAction.LightMode}>Light Mode {Sun}</button>
-          <h4>DarkMode On</h4>
-        </div>
-      ) : (
-        <div>
-          <button onClick={ButtonAction.DarkMode}>Dark Mode {Moon}</button>
-          <h4>DarkMode Off</h4>
-        </div>
-      )}
-      {logger ? (
-        <button onClick={ButtonAction.Logout}>Login Out</button>
-      ) : (
-        <button onClick={ButtonAction.Login}>Login In</button>
-      )}
-      {logger ? Text() : <h3>Please Login</h3>}
+    <div>
+      <Header>
+        <Dark />
+      </Header>
+      <Input />
+      <Output />
     </div>
   );
 };
