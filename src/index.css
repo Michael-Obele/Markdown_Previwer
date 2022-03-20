@@ -1,3 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#input {
+  --bs-gutter-x: 0rem;
+  --bs-gutter-y: 0rem;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -40,8 +50,5 @@ code {
 
 #input {
   margin: 20px;
+  justify-content: center;
 }
-
-/* #output {
-  margin-left: 20px;
-} */

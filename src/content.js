@@ -9,7 +9,7 @@ export const Content = () => {
   };
   return (
     <div>
-      <p.Row id='input' className='justify-content-center'>
+      <p.Row id='input'>
         <p.Form.Control
           as='textarea'
           style={{
