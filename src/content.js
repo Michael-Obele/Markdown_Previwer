@@ -3,10 +3,9 @@ import * as p from 'react-bootstrap';
 import Markdown from 'marked-react';
 
 export const Content = () => {
-  let marked = require('marked');
-  const [markdown, setMarkdown] = useState('');
+  const [markdown, setMarkdown] = useState('# Hello world!');
   const updateMarkdown = (markdown) => {
-    setMarkdown({ markdown });
+    setMarkdown(markdown);
   };
   return (
     <div>
@@ -35,7 +34,7 @@ export const Content = () => {
           <p.Card.Header>Header</p.Card.Header>
           <p.Card.Body>
             <p.Card.Text>
-              <Markdown># Hello world!</Markdown>
+              <Markdown>{markdown}</Markdown>
             </p.Card.Text>
           </p.Card.Body>
         </p.Card>
