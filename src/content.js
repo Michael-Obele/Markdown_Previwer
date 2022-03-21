@@ -6,14 +6,12 @@ import { marked } from 'marked';
 
 export const Content = () => {
   const dummyText = `
-  Heading level 1
-***
+  # Heading level 1
 
   ## Heading level 2
-***
 
   ### A Link
-  My favorite search engine is [Duck Duck Go](https://duckduckgo.com).
+  This is my [Website](https://moaconcept.xyz).
 
   ### A code
   At the command prompt, type ${'`nano`'}
@@ -49,11 +47,10 @@ export const Content = () => {
   const updateMarkdown = (markdown) => {
     setMarkdown(markdown);
   };
-  const html = marked.parse(markdown);
   function createMarkup() {
-    return { __html: html };
+    return { __html: marked.parse(markdown).replace(/(<\/h(1|2)>)/gm, '<hr>') };
   }
-  function MyComponent() {
+  function TheMarkup() {
     return <div dangerouslySetInnerHTML={createMarkup()} />;
   }
   return (
@@ -91,7 +88,7 @@ export const Content = () => {
           <p.Card.Header>Preview</p.Card.Header>
           <p.Card.Body>
             <p.Card.Text>
-              <MyComponent />
+              <TheMarkup />
             </p.Card.Text>
           </p.Card.Body>
         </p.Card>
