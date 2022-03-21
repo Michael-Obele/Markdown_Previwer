@@ -109,6 +109,7 @@ function Developer(you, I) {
           </p.Card.Body>
         </p.Card>
       </p.Row>
+      {marked.parse(markdown)}
     </div>
   );
 };
