@@ -48,8 +48,6 @@ export const Content = () => {
             updateMarkdown(e.target.value);
           }}
         />
-      </p.Row>
-      <p.Row className='justify-content-center'>
         <p.Card
           id='output'
           border='dark'

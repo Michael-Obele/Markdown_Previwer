@@ -10,10 +10,6 @@ export const App = (props) => {
     return DarkMode ? 'grey' : `white`;
   };
   document.body.style.backgroundColor = bColor();
-
-  const color = (x) => {
-    return DarkMode ? `${x} dark` : x;
-  };
   return (
     <div>
       <Header>
