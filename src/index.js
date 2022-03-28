@@ -1,14 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import { App } from './myApp';
-import store from './app/store';
-import { Provider } from 'react-redux';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './Codepen.css';
+import Form from './Codepen';
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root')
-);
+ReactDOM.render(<Form />, document.getElementById('root'));
