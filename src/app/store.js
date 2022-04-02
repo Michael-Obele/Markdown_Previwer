@@ -14,7 +14,7 @@ var initialState = {
   DarkMode: false,
   persistedState,
 };
-const DarkMode = (state = initialState.persistedState.DarkMode, action) => {
+const DarkMode = (state = initialState.DarkMode, action) => {
   switch (action.type) {
     case 'Light':
       return false;
