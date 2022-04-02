@@ -9,7 +9,6 @@ import { saveState } from './localStorage';
 
 store.subscribe(() => {
   saveState({
-    /* example state */
     DarkMode: store.getState().DarkMode,
   });
 });
