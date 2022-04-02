@@ -15,16 +15,14 @@ var initialState = {
   persistedState,
 };
 const DarkMode = (mode, action) => {
-  if (mode == undefined) {
-    mode = initialState.DarkMode;
-  } else {
-    mode = initialState.persistedState.DarkMode;
-  }
+  mode = initialState.persistedState.DarkMode;
   switch (action.type) {
     case 'Light':
       return (mode = false);
+      break;
     case 'Dark':
       return (mode = true);
+      break;
     default:
       return mode;
   }
