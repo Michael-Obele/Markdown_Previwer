@@ -39,7 +39,7 @@ function Developer(you, I) {
    <img src="https://c.tenor.com/NOYF3f82b_gAAAAC/programmer.gif" align="center" height="97" width="134" ></a>
 </p>
 
-# Something more
+# Something Huge Coming
   
   `;
   const DarkMode = useSelector((state) => state.DarkMode);
