@@ -10,17 +10,16 @@ export function switcher() {
 var initialState = {
   DarkMode: false,
 };
-
-const DarkMode = (mode = initialState.DarkMode, action) => {
+const DarkMode = (state = initialState.DarkMode, action) => {
   switch (action.type) {
     case 'Light':
-      return (mode = false);
+      return false;
       break;
     case 'Dark':
-      return (mode = true);
+      return true;
       break;
     default:
-      return mode;
+      return state;
   }
 };
 
