@@ -6,7 +6,7 @@ export const loadState = () => {
     }
     return JSON.parse(serialState);
   } catch (err) {
-    return undefined;
+    return { DarkMode: false };
   }
 };
 
