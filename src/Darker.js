@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import * as actions from './app/store';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
-import { Col, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 const Dark = () => {
   const DarkMode = useSelector((state) => state.DarkMode);
