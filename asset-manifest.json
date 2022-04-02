@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Markdown_Previwer/static/css/main.f975e7ef.css",
+    "main.js": "/Markdown_Previwer/static/js/main.69938a8b.js",
+    "static/media/logo.svg": "/Markdown_Previwer/static/media/logo.e218b5df36d590bbcf671c6165055103.svg",
+    "index.html": "/Markdown_Previwer/index.html",
+    "main.f975e7ef.css.map": "/Markdown_Previwer/static/css/main.f975e7ef.css.map",
+    "main.69938a8b.js.map": "/Markdown_Previwer/static/js/main.69938a8b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f975e7ef.css",
+    "static/js/main.69938a8b.js"
+  ]
+}
