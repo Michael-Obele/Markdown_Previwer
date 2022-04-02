@@ -19,10 +19,8 @@ const DarkMode = (mode, action) => {
   switch (action.type) {
     case 'Light':
       return (mode = false);
-      break;
     case 'Dark':
       return (mode = true);
-      break;
     default:
       return mode;
   }
