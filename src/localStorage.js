@@ -2,7 +2,7 @@ export const loadState = () => {
   try {
     const serialState = localStorage.getItem('appState');
     if (serialState === null) {
-      serialState = { DarkMode: false };
+      return undefined;
     }
     return JSON.parse(serialState);
   } catch (err) {

@@ -18,8 +18,10 @@ const DarkMode = (state = initialState.DarkMode, action) => {
   switch (action.type) {
     case 'Light':
       return false;
+      break;
     case 'Dark':
       return true;
+      break;
     default:
       return state;
   }
