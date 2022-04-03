@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import * as p from 'react-bootstrap';
+import { Content } from './content';
 function Expand() {
   const [show, setShow] = useState(false);
 
@@ -6,24 +9,29 @@ function Expand() {
 
   return (
     <>
-      <Button variant='primary' onClick={handleShow}>
-        Launch demo modal
-      </Button>
+      <p.Button variant='primary' onClick={handleShow}>
+        Launch static backdrop modal
+      </p.Button>
 
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-        <Modal.Footer>
-          <Button variant='secondary' onClick={handleClose}>
+      <p.Modal
+        show={show}
+        onHide={handleClose}
+        backdrop='static'
+        keyboard={false}
+      >
+        <p.Modal.Header closeButton>
+          <p.Modal.Title>p.Modal title</p.Modal.Title>
+        </p.Modal.Header>
+        <p.Modal.Body>
+          <Content />;
+        </p.Modal.Body>
+        <p.Modal.Footer>
+          <p.Button variant='secondary' onClick={handleClose}>
             Close
-          </Button>
-          <Button variant='primary' onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>
+          </p.Button>
+          <p.Button variant='primary'>Understood</p.Button>
+        </p.Modal.Footer>
+      </p.Modal>
     </>
   );
 }

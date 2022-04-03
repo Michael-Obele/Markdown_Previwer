@@ -45,7 +45,6 @@ export const Content = () => {
           style={{ height: 'fit-content', width: '50vw' }}
         >
           <p.Card.Header>Editor</p.Card.Header>
-
           <p.Form.Control
             as='textarea'
             style={{
