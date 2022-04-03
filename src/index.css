@@ -1,6 +1,8 @@
 * {
   margin: 0;
   padding: 0;
+  transition: color 0.8s;
+  transition: background-color 1s;
 }
 
 #input {
