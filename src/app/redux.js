@@ -1,4 +1,5 @@
 import { createStore, combineReducers } from 'redux';
+import { loadState } from '../localStorage';
 
 export function switcher() {
   return {
@@ -7,8 +8,11 @@ export function switcher() {
   };
 }
 
+const persistedState = loadState();
+
 var initialState = {
   DarkMode: false,
+  persistedState,
 };
 const DarkMode = (state = initialState.DarkMode, action) => {
   switch (action.type) {
@@ -29,6 +33,7 @@ const Reducers = combineReducers({
 
 const store = createStore(
   Reducers,
+  persistedState,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 export default store;
