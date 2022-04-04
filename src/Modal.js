@@ -1,7 +1,23 @@
 import { useState } from 'react';
 import * as p from 'react-bootstrap';
-import { Content } from './content';
-function Expand() {
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUpRightAndDownLeftFromCenter } from '@fortawesome/free-solid-svg-icons';
+import { useSelector, useDispatch } from 'react-redux';
+function Expand(props) {
+  const DarkMode = useSelector((state) => state.DarkMode);
+  const dark = () => {
+    return {
+      variant: () => {
+        return DarkMode ? 'dark' : 'light';
+      },
+      color: () => {
+        return DarkMode ? 'white' : 'black';
+      },
+      backgroundColor: () => {
+        return DarkMode ? '#212529' : 'white';
+      },
+    };
+  };
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -9,27 +25,42 @@ function Expand() {
 
   return (
     <>
-      <p.Button variant='primary' onClick={handleShow}>
-        Launch static backdrop modal
+      <p.Button
+        className='expand'
+        variant={dark().variant()}
+        onClick={handleShow}
+      >
+        <FontAwesomeIcon icon={faUpRightAndDownLeftFromCenter} />
       </p.Button>
 
       <p.Modal
         show={show}
         onHide={handleClose}
+        size='xl'
         backdrop='static'
         keyboard={false}
       >
-        <p.Modal.Header closeButton>
-          <p.Modal.Title>p.Modal title</p.Modal.Title>
+        <p.Modal.Header
+          closeButton
+          style={{
+            backgroundColor: dark().backgroundColor(),
+            color: dark().color(),
+          }}
+        >
+          <p.Modal.Title>{props.Title}</p.Modal.Title>
         </p.Modal.Header>
-        <p.Modal.Body>
-          <Content />;
+        <p.Modal.Body
+          style={{
+            backgroundColor: dark().backgroundColor(),
+            color: dark().color(),
+          }}
+        >
+          {props.children}
         </p.Modal.Body>
-        <p.Modal.Footer>
-          <p.Button variant='secondary' onClick={handleClose}>
+        <p.Modal.Footer style={{ backgroundColor: dark().backgroundColor() }}>
+          <p.Button variant='danger' onClick={handleClose}>
             Close
           </p.Button>
-          <p.Button variant='primary'>Understood</p.Button>
         </p.Modal.Footer>
       </p.Modal>
     </>

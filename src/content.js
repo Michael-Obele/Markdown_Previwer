@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import * as p from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { Text } from './dummyText';
+import Expand from './Modal';
 import { marked } from 'marked';
 // or const { marked } = require('marked');
 
@@ -44,7 +45,24 @@ export const Content = () => {
           bg={dark().bg()}
           style={{ height: 'fit-content', width: '50vw' }}
         >
-          <p.Card.Header>Editor</p.Card.Header>
+          <p.Card.Header>
+            Editor{' '}
+            <Expand Title='Editor'>
+              {' '}
+              <p.Form.Control
+                as='textarea'
+                style={{
+                  height: '70vh',
+                  backgroundColor: dark().backgroundColor(),
+                  color: dark().color(),
+                }}
+                value={markdown}
+                onChange={(e) => {
+                  updateMarkdown(e.target.value);
+                }}
+              />
+            </Expand>{' '}
+          </p.Card.Header>
           <p.Form.Control
             as='textarea'
             style={{
@@ -65,7 +83,13 @@ export const Content = () => {
           bg={dark().bg()}
           style={{ height: 'fit-content', width: '50vw' }}
         >
-          <p.Card.Header>Preview</p.Card.Header>
+          <p.Card.Header>
+            Preview{' '}
+            <Expand Title='Preview'>
+              {' '}
+              <TheMarkup />
+            </Expand>{' '}
+          </p.Card.Header>
           <p.Card.Body>
             <p.Card.Text>
               <TheMarkup />

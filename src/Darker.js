@@ -15,8 +15,20 @@ const Dark = () => {
       dispatch(actions.switcher().Light());
     },
   };
-  const Moon = <FontAwesomeIcon icon={faMoon} />;
-  const Sun = <FontAwesomeIcon icon={faSun} />;
+  const Moon = (
+    <FontAwesomeIcon
+      icon={faMoon}
+      className='fa-bounce'
+      style={{ animationDuration: '1s', animationIterationCount: '1' }}
+    />
+  );
+  const Sun = (
+    <FontAwesomeIcon
+      icon={faSun}
+      className='fa-beat'
+      style={{ animationDuration: '1.6s', animationIterationCount: '1' }}
+    />
+  );
   return DarkMode ? (
     <Button variant='light' onClick={ButtonAction.LightMode}>
       {Sun}
