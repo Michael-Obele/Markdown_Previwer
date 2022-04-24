@@ -43,7 +43,7 @@ export const Content = () => {
           border='dark'
           text={dark().text()}
           bg={dark().bg()}
-          style={{ height: 'fit-content', width: '50vw' }}
+          style={{ height: 'fit-content', width: '85vw' }}
         >
           <p.Card.Header>
             Editor{' '}
@@ -81,7 +81,7 @@ export const Content = () => {
           border='dark'
           text={dark().text()}
           bg={dark().bg()}
-          style={{ height: 'fit-content', width: '50vw' }}
+          style={{ height: 'fit-content', width: '85vw' }}
         >
           <p.Card.Header>
             Preview{' '}
