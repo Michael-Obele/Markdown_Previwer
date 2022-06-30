@@ -2,6 +2,7 @@ import { useState } from 'react';
 import * as p from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpRightAndDownLeftFromCenter } from '@fortawesome/free-solid-svg-icons';
+import CloseButton from 'react-bootstrap/CloseButton';
 import { useSelector } from 'react-redux';
 function Expand(props) {
   const DarkMode = useSelector((state) => state.DarkMode);
@@ -41,13 +42,13 @@ function Expand(props) {
         keyboard={false}
       >
         <p.Modal.Header
-          closeButton
           style={{
             backgroundColor: dark().backgroundColor(),
             color: dark().color(),
           }}
         >
           <p.Modal.Title>{props.Title}</p.Modal.Title>
+          <CloseButton onClick={handleClose} variant={dark().color()} />
         </p.Modal.Header>
         <p.Modal.Body
           style={{
