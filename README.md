@@ -7,4 +7,4 @@ The site has:
 - And a nice looking initial preview state (that dummy function works too)
 - Other features coming too
 
-You can see the site [here!](https://the-awesome-michael-obele-site.netlify.app/)
+You can see the site [here!](https://markdown-previewer-moa.netlify.app/)
