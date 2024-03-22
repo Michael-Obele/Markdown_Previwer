@@ -1,5 +1,4 @@
-export const Text = () => {
-  return `
+
    ## Hi <img src="https://c.tenor.com/Wx9IEmZZXSoAAAAj/hi.gif" height="25" width="25" >
 
 # I’m Michael Obele
@@ -34,6 +33,4 @@ function Developer(you, I) {
 </p>
 
 # Something more
-  
-  `;
-};
+

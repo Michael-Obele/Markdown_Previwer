@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Header from './Header';
-import Dark from './Darker';
+import Dark from './Theme';
 import { Content } from './content';
 
 export const App = (props) => {
