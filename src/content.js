@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import * as p from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-import { Text } from './dummyText';
+import Text from './dummyText.md';
 import Expand from './Modal';
 import { marked } from 'marked';
 // or const { marked } = require('marked');
@@ -43,8 +43,7 @@ export const Content = () => {
           border='dark'
           text={dark().text()}
           bg={dark().bg()}
-          style={{ height: 'fit-content', width: '85vw' }}
-        >
+          style={{ height: 'fit-content', width: '85vw' }}>
           <p.Card.Header>
             Editor{' '}
             <Expand Title='Editor'>
@@ -81,8 +80,7 @@ export const Content = () => {
           border='dark'
           text={dark().text()}
           bg={dark().bg()}
-          style={{ height: 'fit-content', width: '85vw' }}
-        >
+          style={{ height: 'fit-content', width: '85vw' }}>
           <p.Card.Header>
             Preview{' '}
             <Expand Title='Preview'>
