@@ -22,7 +22,7 @@ function Developer(you, I) {
 
 - 👀 I’m searching for organizations and or persons to collaborate on open-source projects!
 
-- 🌱 I’m currently learning  <img src="https://github.com/Michael-Obele/Gif/blob/main/icons8-javascript.gif?raw=true" align="center" height="28" width="28"> <img src="https://github.com/Michael-Obele/Gif/blob/main/icons8-react.gif?raw=true" align="center" height="28" width="28"> and <img src="https://github.com/Michael-Obele/Gif/blob/main/icons8-python.gif?raw=true" align="center" height="28" width="28">
+- 🌱 I’m currently learning  <img src="https://github.com/Michael-Obele/Gif/blob/main/icons8-javascript.gif?raw=true" align="center" height="28" width="28">
 
 - 📫 You can reach me on Twitter [@Dev_Obele](https://twitter.com/Dev_Obele) or check out my [website](https://moaconcept.xyz)
 

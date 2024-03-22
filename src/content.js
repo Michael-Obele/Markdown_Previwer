@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as p from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-import Text from './dummyText.md';
+import file from './dummyText.md';
 import Expand from './Modal';
 import { marked } from 'marked';
 // or const { marked } = require('marked');
 
 export const Content = () => {
-  <Text />;
   const DarkMode = useSelector((state) => state.DarkMode);
+  console.log(Text);
   const dark = () => {
     return {
       bg: () => {
@@ -25,7 +25,13 @@ export const Content = () => {
       },
     };
   };
-  const [markdown, setMarkdown] = useState(Text);
+  const [markdown, setMarkdown] = useState('');
+
+  useEffect(() => {
+    fetch(file)
+      .then((res) => res.text())
+      .then((text) => setMarkdown(text));
+  }, []);
   const updateMarkdown = (markdown) => {
     setMarkdown(markdown);
   };
