@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import * as p from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -41,18 +41,30 @@ export const Content = () => {
   };
 
   const bold = () => {
-    setMarkdown(`${markdown} **${value}** `);
+    const startIndex = markdown.indexOf(value);
+    const selectedText = markdown.substring(
+      startIndex,
+      startIndex + value.length
+    );
+    setMarkdown(markdown.replace(selectedText, `**${selectedText}**`));
   };
 
   const italic = () => {
-    setMarkdown(`${markdown} *${value}* `);
+    const startIndex = markdown.indexOf(value);
+    const selectedText = markdown.substring(
+      startIndex,
+      startIndex + value.length
+    );
+    setMarkdown(markdown.replace(selectedText, `*${selectedText}*`));
   };
 
   const quote = () => {
-    setMarkdown(
-      `${markdown}
-> ${value} `
+    const startIndex = markdown.indexOf(value);
+    const selectedText = markdown.substring(
+      startIndex,
+      startIndex + value.length
     );
+    setMarkdown(markdown.replace(selectedText, `\n > ${selectedText}`));
   };
 
   // Remove unnecessary useEffect
