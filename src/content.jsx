@@ -22,6 +22,12 @@ export const Content = () => {
     };
   };
 
+  useEffect(() => {
+    fetch(file)
+      .then((res) => res.text())
+      .then((text) => setMarkdown(text));
+  }, []);
+
   const [markdown, setMarkdown] = useState('');
   const [value, setValue] = useState('');
 
@@ -42,12 +48,6 @@ export const Content = () => {
   const quote = () => {
     setMarkdown((prevMarkdown) => prevMarkdown.replace(value, `\n > ${value}`));
   };
-
-  useEffect(() => {
-    fetch(file)
-      .then((res) => res.text())
-      .then((text) => setMarkdown(text));
-  }, []);
 
   const updateMarkdown = (newMarkdown) => {
     setMarkdown(newMarkdown);
