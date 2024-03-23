@@ -9,16 +9,11 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import file from './dummyText.md';
 import Expand from './Modal';
+// import Markdown from 'react-markdown';
 import { marked } from 'marked';
-// or const { marked } = require('marked');
 
 export const Content = () => {
   const DarkMode = useSelector((state) => state.DarkMode);
-  const [value, setValue] = useState('');
-  const handleMouseUp = () => {
-    setValue(window.getSelection().toString());
-    console.log(`Selected text: ${value}`);
-  };
   const dark = () => {
     return {
       bg: () => {
@@ -35,22 +30,50 @@ export const Content = () => {
       },
     };
   };
+
   const [markdown, setMarkdown] = useState('');
+  const [value, setValue] = useState('');
+
+  const handleMouseUp = () => {
+    const selectedText = window.getSelection().toString();
+    setValue(selectedText);
+    console.log(`Selected text: ${selectedText}`);
+  };
+
+  const bold = () => {
+    setMarkdown(`${markdown} **${value}** `);
+  };
+
+  const italic = () => {
+    setMarkdown(`${markdown} *${value}* `);
+  };
+
+  const quote = () => {
+    setMarkdown(
+      `${markdown}
+> ${value} `
+    );
+  };
+
+  // Remove unnecessary useEffect
 
   useEffect(() => {
     fetch(file)
       .then((res) => res.text())
       .then((text) => setMarkdown(text));
   }, []);
-  const updateMarkdown = (markdown) => {
-    setMarkdown(markdown);
+
+  const updateMarkdown = (newMarkdown) => {
+    setMarkdown(newMarkdown);
   };
+
   function createMarkup() {
     return { __html: marked.parse(markdown).replace(/(<\/h(1|2)>)/gm, '<hr>') };
   }
   function TheMarkup() {
     return <div dangerouslySetInnerHTML={createMarkup()} />;
   }
+
   return (
     <div>
       <p.Row id='input' className='justify-content-center'>
@@ -64,13 +87,13 @@ export const Content = () => {
             <div className='row  justify-content-start'>
               <div className='p-2 fs-5 col-sm-1'>Editor</div>
               <p.Button className='btn btn-dark col-sm-1'>
-                <FontAwesomeIcon icon={faBold} />
+                <FontAwesomeIcon icon={faBold} onClick={bold} />
               </p.Button>
               <p.Button className='btn btn-dark col-sm-1'>
-                <FontAwesomeIcon icon={faItalic} />
+                <FontAwesomeIcon onClick={italic} icon={faItalic} />
               </p.Button>
               <p.Button className='btn btn-dark col-sm-1'>
-                <FontAwesomeIcon icon={faQuoteLeft} />
+                <FontAwesomeIcon onClick={quote} icon={faQuoteLeft} />
               </p.Button>
             </div>
             <Expand Title='Editor'>
@@ -90,13 +113,13 @@ export const Content = () => {
             </Expand>{' '}
           </p.Card.Header>
           <p.Form.Control
+            onMouseUp={handleMouseUp}
             as='textarea'
             style={{
               height: '30vh',
               backgroundColor: dark().backgroundColor(),
               color: dark().color(),
             }}
-            onMouseUp={handleMouseUp}
             value={markdown}
             onChange={(e) => {
               updateMarkdown(e.target.value);
