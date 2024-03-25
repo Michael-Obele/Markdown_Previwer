@@ -94,14 +94,11 @@ function Expand(props) {
             backgroundColor: dark().backgroundColor,
             color: dark().color,
           }}>
-          {props.body}
+          {props.children}
         </p.Modal.Body>
         <p.Modal.Footer style={{ backgroundColor: dark().backgroundColor }}>
           <p.Button className='mx-5' variant='danger' onClick={handleClose}>
             Close
-          </p.Button>
-          <p.Button className='mr-5' variant='primary' onClick={handleClose}>
-            Copy
           </p.Button>
         </p.Modal.Footer>
       </p.Modal>

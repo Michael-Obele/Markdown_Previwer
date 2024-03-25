@@ -149,7 +149,7 @@ export const Content = () => {
             </Expand>
           </p.Card.Header>
           <p.Card.Body>
-            <p.Card.Text body={<TheMarkup />}>
+            <p.Card.Text>
               <TheMarkup />
             </p.Card.Text>
           </p.Card.Body>
