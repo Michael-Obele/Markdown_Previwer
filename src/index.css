@@ -28,10 +28,16 @@ code {
   font-family: 'Press Start 2P', cursive; */
 }
 
-.expand{
+.expand {
   position: absolute;
   top: 0;
   right: 0;
+}
+
+.expand-1 {
+  position: absolute;
+  top: 0;
+  right: 3.75rem;
 }
 
 #input,
@@ -39,23 +45,30 @@ code {
   margin: 20px;
 }
 
-tbody, td, tfoot, th, thead, tr {
-    border-width: 1px !important;
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+  border-width: 1px !important;
 }
-th, td {
+th,
+td {
   padding: 5px;
 }
 
-img, svg {
-    width: auto;
-    max-width: -webkit-fill-available;
+img,
+svg {
+  width: auto;
+  max-width: -webkit-fill-available;
 }
 
 blockquote {
   border-left: 4px solid #ccc;
   margin: 1.5em 10px;
   padding: 0.5em 10px;
-  quotes: "\201C\201D\2018\2019";
+  quotes: '\201C\201D\2018\2019';
 }
 
 blockquote p {

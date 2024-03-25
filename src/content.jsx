@@ -38,20 +38,42 @@ export const Content = () => {
   };
 
   const bold = () => {
-    setMarkdown((prevMarkdown) => prevMarkdown.replace(value, `**${value}**`));
+    setMarkdown((prevMarkdown) =>
+      prevMarkdown.replace(new RegExp(`\\b${value}\\b`, 'g'), `**${value}**`)
+    );
   };
 
   const italic = () => {
-    setMarkdown((prevMarkdown) => prevMarkdown.replace(value, `*${value}*`));
+    setMarkdown((prevMarkdown) =>
+      prevMarkdown.replace(new RegExp(`\\b${value}\\b`, 'g'), `*${value}*`)
+    );
   };
 
   const quote = () => {
-    setMarkdown((prevMarkdown) => prevMarkdown.replace(value, `\n > ${value}`));
+    setMarkdown((prevMarkdown) =>
+      prevMarkdown.replace(new RegExp(`\\b${value}\\b`, 'g'), `\n > ${value}`)
+    );
   };
+
+  function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
 
   const updateMarkdown = (newMarkdown) => {
     setMarkdown(newMarkdown);
   };
+
+  const debouncedBold = debounce(bold, 300);
+  const debouncedItalic = debounce(italic, 300);
+  const debouncedQuote = debounce(quote, 300);
 
   function createMarkup() {
     return { __html: marked.parse(markdown).replace(/(<\/h(1|2)>)/gm, '<hr>') };
@@ -74,13 +96,13 @@ export const Content = () => {
             <div className='row  justify-content-start'>
               <div className='p-2 fs-5 col-sm-1'>Editor</div>
               <p.Button className='btn btn-dark col-sm-1'>
-                <FontAwesomeIcon icon={faBold} onClick={bold} />
+                <FontAwesomeIcon icon={faBold} onClick={debouncedBold} />
               </p.Button>
               <p.Button className='btn btn-dark col-sm-1'>
-                <FontAwesomeIcon onClick={italic} icon={faItalic} />
+                <FontAwesomeIcon onClick={debouncedItalic} icon={faItalic} />
               </p.Button>
               <p.Button className='btn btn-dark col-sm-1'>
-                <FontAwesomeIcon onClick={quote} icon={faQuoteLeft} />
+                <FontAwesomeIcon onClick={debouncedQuote} icon={faQuoteLeft} />
               </p.Button>
             </div>
             <Expand Title='Editor'>
@@ -120,12 +142,13 @@ export const Content = () => {
           style={{ height: 'fit-content', width: '85vw' }}>
           <p.Card.Header>
             <div className='p-2 fs-5 col-sm-1'>Preview</div>
+
             <Expand Title='Preview'>
               <TheMarkup />
             </Expand>
           </p.Card.Header>
           <p.Card.Body>
-            <p.Card.Text>
+            <p.Card.Text body={<TheMarkup />}>
               <TheMarkup />
             </p.Card.Text>
           </p.Card.Body>
