@@ -11,15 +11,11 @@ function Expand(props) {
   const DarkMode = useSelector((state) => state.DarkMode);
   const dark = () => {
     return {
-      variant: () => {
-        return DarkMode ? 'dark' : 'light';
-      },
-      color: () => {
-        return DarkMode ? 'white' : 'black';
-      },
-      backgroundColor: () => {
-        return DarkMode ? '#212529' : 'white';
-      },
+      variant: DarkMode ? 'dark' : 'light',
+      bg: DarkMode ? 'dark' : 'light',
+      text: DarkMode ? 'light' : 'dark',
+      color: DarkMode ? 'white' : 'black',
+      backgroundColor: DarkMode ? '#212529' : 'white',
     };
   };
   const [show, setShow] = useState(false);
@@ -45,14 +41,14 @@ function Expand(props) {
       <div>
         <p.Button
           className='expand'
-          variant={dark().variant()}
+          variant={dark().variant}
           onClick={handleShow}>
           <FontAwesomeIcon icon={faUpRightAndDownLeftFromCenter} />
         </p.Button>
         {props.Title === 'Editor' && (
           <p.Button
             className='expand-1'
-            variant={dark().variant()}
+            variant={dark().variant}
             onClick={() => handleCopy(text)}>
             <FontAwesomeIcon icon={faClipboard} />
           </p.Button>
@@ -67,20 +63,20 @@ function Expand(props) {
         keyboard={false}>
         <p.Modal.Header
           style={{
-            backgroundColor: dark().backgroundColor(),
-            color: dark().color(),
+            backgroundColor: dark().backgroundColor,
+            color: dark().color,
           }}>
           <p.Modal.Title>{props.Title}</p.Modal.Title>
-          <CloseButton onClick={handleClose} variant={dark().color()} />
+          <CloseButton onClick={handleClose} variant={dark().color} />
         </p.Modal.Header>
         <p.Modal.Body
           style={{
-            backgroundColor: dark().backgroundColor(),
-            color: dark().color(),
+            backgroundColor: dark().backgroundColor,
+            color: dark().color,
           }}>
           {props.body}
         </p.Modal.Body>
-        <p.Modal.Footer style={{ backgroundColor: dark().backgroundColor() }}>
+        <p.Modal.Footer style={{ backgroundColor: dark().backgroundColor }}>
           <p.Button className='mx-5' variant='danger' onClick={handleClose}>
             Close
           </p.Button>

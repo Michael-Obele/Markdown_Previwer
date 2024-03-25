@@ -15,6 +15,7 @@ export const Content = () => {
   const DarkMode = useSelector((state) => state.DarkMode);
   const dark = () => {
     return {
+      variant: DarkMode ? 'dark' : 'light',
       bg: DarkMode ? 'dark' : 'light',
       text: DarkMode ? 'light' : 'dark',
       color: DarkMode ? 'white' : 'black',
@@ -95,13 +96,13 @@ export const Content = () => {
           <p.Card.Header>
             <div className='row  justify-content-start'>
               <div className='p-2 fs-5 col-sm-1'>Editor</div>
-              <p.Button className='btn btn-dark col-sm-1'>
+              <p.Button variant={dark().variant} className='col-sm-1'>
                 <FontAwesomeIcon icon={faBold} onClick={debouncedBold} />
               </p.Button>
-              <p.Button className='btn btn-dark col-sm-1'>
+              <p.Button variant={dark().variant} className='col-sm-1'>
                 <FontAwesomeIcon onClick={debouncedItalic} icon={faItalic} />
               </p.Button>
-              <p.Button className='btn btn-dark col-sm-1'>
+              <p.Button variant={dark().variant} className='col-sm-1'>
                 <FontAwesomeIcon onClick={debouncedQuote} icon={faQuoteLeft} />
               </p.Button>
             </div>
