@@ -7,6 +7,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import CloseButton from 'react-bootstrap/CloseButton';
 import { useSelector } from 'react-redux';
+import Toast from 'react-bootstrap/Toast';
 function Expand(props) {
   const DarkMode = useSelector((state) => state.DarkMode);
   const dark = () => {
@@ -19,6 +20,7 @@ function Expand(props) {
     };
   };
   const [show, setShow] = useState(false);
+  const [toastShow, setToastShow] = useState(false);
   let text = props.children.props.value;
 
   const handleCopy = (text) => {
@@ -27,6 +29,7 @@ function Expand(props) {
       .then(() => {
         console.log(text);
         console.log('Text copied to clipboard');
+        setToastShow(true);
       })
       .catch((err) => {
         console.error('Failed to copy text: ', err);
@@ -38,6 +41,23 @@ function Expand(props) {
 
   return (
     <>
+      {/* Toast */}
+      {props.Title === 'Editor' && (
+        <div class='position-absolute top-0 start-50 translate-middle'>
+          <Toast
+            onClose={() => setToastShow(false)}
+            show={toastShow}
+            delay={3000}
+            bg={'success'}
+            autohide>
+            <Toast.Header>
+              <strong className='me-auto'>Copied!</strong>
+            </Toast.Header>
+            <Toast.Body>Success, the text is copied!</Toast.Body>
+          </Toast>
+        </div>
+      )}
+      {/* Toast */}
       <div>
         <p.Button
           className='expand'
